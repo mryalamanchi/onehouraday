@@ -7,6 +7,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 * Before installing, [ download and install Node.js](https://nodejs.org/en/), Node.js 0.10 or higher is required.
+* how to [create new barnch](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches) in github from command line
 
 ### installing 
 * clone the project
