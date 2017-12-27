@@ -39,3 +39,18 @@ npm install body-parser
 ```
 nodemon server.js
 ```
+
+* Developed backend code for publish project.As frontend is not developed tested backend code using postman client.
+Method type:POST
+URL : http://localhost:5000/createproject
+In postman client go in body tab and select raw and data format as JSON(application/json) and post the following data:
+{
+	"name": "project1",
+	"description": "test project1",
+	"type": "health",
+	"contact_detail": {
+		"contact_type": "1",
+		"contact_info": "2",
+		"contact_name": "3"
+	}
+}
