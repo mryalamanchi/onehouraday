@@ -26,6 +26,11 @@ npm install
 ```
 npm install -g nodemon
 ```
+* npm install mongoose
+```
+* npm install body-parser
+```
+
 * run project
 ```
 nodemon server.js
