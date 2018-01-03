@@ -10,17 +10,17 @@ projectService={
         projectData.updated_at=Date.now();
 
         console.log("Project Data :"+JSON.stringify(projectData));
-        projectData.save((error, savedProject) => {
-            if (error) {
-                console.log("ERror in project service :");
-                console.log(error);
-                return res.sendStatus(500);
-            }
-            console.log("success");
-            res.setHeader('Content-Type', 'application/json')
-            return res.status(200).json('Saved data');
+        return new Promise (function(resolve){
+            projectData.save((error) => {
+                if (error) {
+                    console.log("ERror in project service :");
+                    console.log(error);
+                    resolve(false);
+                }
+                console.log("success");
+                resolve(true);
+            });
         });
-
     },
 
     getProjectById(){
