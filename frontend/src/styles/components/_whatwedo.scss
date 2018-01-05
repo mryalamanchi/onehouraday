@@ -1,0 +1,32 @@
+.mission{
+    display: flex;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: $xl-size;
+    justify-content: space-between;
+    letter-spacing:2px;
+}
+
+.mission .col{
+    width: 32%;
+    align-content: flex-start;
+}
+.col{
+    padding: 20px;
+}
+
+.whatwedo__title{
+    font-size:$l-size;
+    margin: 0;
+    text-align: center;
+    color:black;
+    font-family: Dancing Script, cursive;
+}
+.whatwedo__subtitle{
+    color:black;
+    font-size: $s-size;
+    font-weight:400;
+    margin: 0;
+    padding-top: $s-size;
+    text-align:center;
+}
