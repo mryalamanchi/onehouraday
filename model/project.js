@@ -3,12 +3,18 @@ var Schema = mongoose.Schema
 var projectSchema = new Schema( {
           name: String,
           description: String,
-          type:String,
+          category:String,
           contact_detail:{
             contact_type:String,
             contact_info:String,
             contact_name:String
           },
+          tasks:[
+            { 
+              task_name:String,
+              task_role:String
+            }
+          ],
           created_at:Date,
           updated_at:Date
       });
