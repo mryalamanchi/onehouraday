@@ -9,6 +9,10 @@ var projectSchema = new Schema( {
             contact_info:String,
             contact_name:String
           },
+          location:{
+            country:String,
+            city:String
+          },
           created_at:Date,
           updated_at:Date
       });
