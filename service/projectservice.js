@@ -32,7 +32,25 @@ projectService={
     },
 
     deleteProject(){
+        
+    },
 
+    getProjectsByCategory(categoryName){
+        console.log("Get Projects by Category")
+        const criteria={}
+        criteria.category=categoryName
+        console.log('criteria :'+criteria)
+        return new Promise(function(resolve){
+            project.find(criteria,function(error,projects){
+                if(error){
+                    resolve(false);
+                     console.log("error")
+                }
+                console.log("success")
+                console.log("Projects :"+projects)
+                resolve(projects)
+            });
+        });
     }
 
 }

@@ -3,7 +3,7 @@ var Schema = mongoose.Schema
 var projectSchema = new Schema( {
           name: String,
           description: String,
-          type:String,
+          category:String,
           contact_detail:{
             contact_type:String,
             contact_info:String,

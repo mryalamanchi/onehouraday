@@ -17,4 +17,17 @@ module.exports.controller = function(app) {
     }
   });
 
+  app.get('/projects/:categoryname',async function(req,res){
+      var categoryname=req.params.categoryname;
+      console.log("Category Name : "+categoryname);
+      var result=await projectService.getProjectsByCategory(categoryname);
+      console.log('result :'+result);
+      if(result.constructor===Array){
+          res.setHeader('Content-Type', 'application/json')
+          return res.status(200).json(result);
+      }else{
+          return res.sendStatus(500);
+      }
+  });
+
 }
