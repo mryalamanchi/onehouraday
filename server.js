@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/frontend/public/index.html');
+    res.sendFile(__dirname + '/frontend/index.html');
 });
 
 //need to store the url in property file
