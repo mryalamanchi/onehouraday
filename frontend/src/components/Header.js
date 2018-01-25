@@ -1,5 +1,4 @@
 import React from 'react';
-import myImage from '../images/code.jpg';
 
 
  const Header = (props)=>{
