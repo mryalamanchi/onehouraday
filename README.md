@@ -1,12 +1,11 @@
-#Welcome to 1hour1day.com project.
 
-#Our Vision
+# Our Vision
 A fair world. (Simple, but that’s how we see the future)
 
-#Our Mission
+# Our Mission
 Maximise social initiatives impact by making social collaboration an habit on people’s life.
 
-#About 1 Hour a Day
+# About 1 Hour a Day
 1hour1day.com is a Social Platform that enables people to learn by helping.
 
 We need to give a solution to 2 specific problems:
