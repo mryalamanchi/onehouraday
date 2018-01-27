@@ -24,7 +24,7 @@ This platform creates a new ecosystem where people can learn from each other and
 * [How people get communicated?](https://github.com/hjconehour/onehouraday/wiki/How-people-get-communicated%3F)
 * [How the work is organised?](https://github.com/hjconehour/onehouraday/wiki/How-the-work-is-organised%3F)
 * [How to start collaborating](https://github.com/hjconehour/onehouraday/wiki/How-to-start-collaborating)
-* [Kanban board](https://github.com/hjconehour/onehouraday/wiki/Kanban-board)
+* [Kanban board](https://github.com/hjconehour/onehouraday/projects/1)
 * [Overall roadmap](https://github.com/hjconehour/onehouraday/wiki/Overall-roadmap)
 
 
