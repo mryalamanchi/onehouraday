@@ -16,6 +16,8 @@ b) We are so focused on the business side that sometimes we forget about the soc
 
 This platform creates a new ecosystem where people can learn from each other and social projects can have a great impact.
 
+(https://user-images.githubusercontent.com/3884690/35479997-dc1722f2-0404-11e8-95a0-0c980b4c1e50.png)
+
 
 * [Team Values](https://github.com/hjconehour/onehouraday/wiki/Team-Values)
 * [What’s the current status of the project and our current mission?](https://github.com/hjconehour/onehouraday/wiki/What%E2%80%99s-the-current-status-of-the-project-and-our-current-mission%3F)
