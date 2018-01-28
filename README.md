@@ -1,4 +1,15 @@
 
+* [Team Values](https://github.com/hjconehour/onehouraday/wiki/Team-Values)
+* [What’s the current status of the project and our current mission?](https://github.com/hjconehour/onehouraday/wiki/What%E2%80%99s-the-current-status-of-the-project-and-our-current-mission%3F)
+* [What it is expected from collaborators?](https://github.com/hjconehour/onehouraday/wiki/What-it-is-expected-from-collaborators%3F)
+* [How do I start?](https://github.com/hjconehour/onehouraday/wiki/How-do-I-start%3F)
+* [How people get communicated?](https://github.com/hjconehour/onehouraday/wiki/How-people-get-communicated%3F)
+* [How the work is organised?](https://github.com/hjconehour/onehouraday/wiki/How-the-work-is-organised%3F)
+* [How to start collaborating](https://github.com/hjconehour/onehouraday/wiki/How-to-start-collaborating)
+* [Kanban board](https://github.com/hjconehour/onehouraday/projects/1)
+* [Overall roadmap](https://github.com/hjconehour/onehouraday/wiki/Overall-roadmap)
+
+
 # Our Vision
 A fair world. (Simple, but that’s how we see the future)
 
@@ -19,15 +30,6 @@ This platform creates a new ecosystem where people can learn from each other and
 ![Homepage](https://user-images.githubusercontent.com/3884690/35479997-dc1722f2-0404-11e8-95a0-0c980b4c1e50.png)
 
 
-* [Team Values](https://github.com/hjconehour/onehouraday/wiki/Team-Values)
-* [What’s the current status of the project and our current mission?](https://github.com/hjconehour/onehouraday/wiki/What%E2%80%99s-the-current-status-of-the-project-and-our-current-mission%3F)
-* [What it is expected from collaborators?](https://github.com/hjconehour/onehouraday/wiki/What-it-is-expected-from-collaborators%3F)
-* [How do I start?](https://github.com/hjconehour/onehouraday/wiki/How-do-I-start%3F)
-* [How people get communicated?](https://github.com/hjconehour/onehouraday/wiki/How-people-get-communicated%3F)
-* [How the work is organised?](https://github.com/hjconehour/onehouraday/wiki/How-the-work-is-organised%3F)
-* [How to start collaborating](https://github.com/hjconehour/onehouraday/wiki/How-to-start-collaborating)
-* [Kanban board](https://github.com/hjconehour/onehouraday/projects/1)
-* [Overall roadmap](https://github.com/hjconehour/onehouraday/wiki/Overall-roadmap)
 
 
 ## Getting Started
