@@ -27,7 +27,7 @@ b) We are so focused on the business side that sometimes we forget about the soc
 
 This platform creates a new ecosystem where people can learn from each other and social projects can have a great impact.
 
-![Homepage](https://user-images.githubusercontent.com/3884690/35480044-712f6ccc-0406-11e8-85b7-fafaaed22600.png {width=10px})
+![Homepage](https://user-images.githubusercontent.com/3884690/35480044-712f6ccc-0406-11e8-85b7-fafaaed22600.png = 250x250)
 
 ## Getting Started
 
