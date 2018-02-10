@@ -17,7 +17,7 @@ A fair world. (Simple, but that’s how we see the future)
 Maximise social initiatives impact by making social collaboration an habit on people’s life.
 
 # About 1 Hour a Day
-1hour1day.com is a Social Platform that enables people to learn by helping social innitiatives. 
+1hour1day.com is a Social Platform that enables people to learn by helping on social innitiatives. 
 We want to reduce the barriers present on "Social impact work" and encourage more people to *use their strengths to serve others.*
 
 # What problems we want to solve
