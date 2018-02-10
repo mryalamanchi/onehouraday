@@ -17,18 +17,32 @@ A fair world. (Simple, but that’s how we see the future)
 Maximise social initiatives impact by making social collaboration an habit on people’s life.
 
 # About 1 Hour a Day
-1hour1day.com is a Social Platform that enables people to learn by helping.
+1hour1day.com is a Social Platform that enables people to learn by helping social innitiatives. 
+We want to reduce the barriers present on "Social impact work" and encourage more people to *use their strengths to serve others.*
 
-We need to give a solution to 2 specific problems:
+# What problems we want to solve
 
-a) Let young people get more experience by working on real topics. Learn by doing (helping) In most of the countries entry requirements are too high or there are not open positions. Let's create a new market where people can experiment by doing and helping.
+1hourAday enables a new ecosystem that enables win-win relations
 
-b) We are so focused on the business side that sometimes we forget about the social impact of our projects. So our second goal is to power up social projects through soft volunteer. If we can just spend a few hours helping a social cause, together we can do a huge impact.
+##  For people: Enable new environments that lets poeple improve their skills with real impact work
 
-This platform creates a new ecosystem where people can learn from each other and social projects can have a great impact.
+We have seen people frustrated about the following situations:
+
+* Getting blocked and not being able to keep develop their profesional career
+* Gaining experience for a new role is hard  (without real experience) 
+* Entering the job market is hard.  (Entry requirements are too high and people don't have experience)
+* Learning is limited to who you interact and you need to switch jobs to learn from other environment. 
+
+##  For social projects:  Power up social projects through soft volunteer
+
+If we can just spend a few hours helping a social cause, all together we can do a huge impact.
+
+* This platform aims to remove all the barriers that now prevents people to spend a few time helping on a social project.
+* We want to reinforce the "Get a Task Done" volunteer experience 
+* We want people to use the stregths to help others 
+* We want experts from everyone collaborating with social projects 
 
 ![Homepage](https://user-images.githubusercontent.com/3884690/35480044-712f6ccc-0406-11e8-85b7-fafaaed22600.png)
-
 
 
 ## Getting Started
