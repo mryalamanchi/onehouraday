@@ -26,11 +26,12 @@ We want to reduce the barriers present on "Social impact work" and encourage mor
 
 ###  For social projects:  Power up social projects through soft volunteer
 
-If we can just spend a few hours helping a social cause, all together we can do a huge impact.
+We have seen a lot of social projects that still cannnot reach their max potencial. 
+If we can all just spend a few hours helping a social cause, together we can do a huge impact.
 
 * This platform aims to remove all the barriers that now prevents people to spend a few time helping on a social project.
 * We want to reinforce the "Get a Task Done" volunteer experience 
-* We want people to use the stregths to help others 
+* We want people to use their stregths to help others 
 * We want experts from everyone collaborating with social projects 
 
 ###  For people: Enable new environments that lets poeple improve their skills with real impact work
