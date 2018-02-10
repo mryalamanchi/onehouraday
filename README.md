@@ -24,16 +24,7 @@ We want to reduce the barriers present on "Social impact work" and encourage mor
 
 1hourAday enables a new ecosystem that enables win-win relations
 
-##  For people: Enable new environments that lets poeple improve their skills with real impact work
-
-We have seen people frustrated about the following situations:
-
-* Getting blocked and not being able to keep develop their profesional career
-* Gaining experience for a new role is hard  (without real experience) 
-* Entering the job market is hard.  (Entry requirements are too high and people don't have experience)
-* Learning is limited to who you interact and you need to switch jobs to learn from other environment. 
-
-##  For social projects:  Power up social projects through soft volunteer
+###  For social projects:  Power up social projects through soft volunteer
 
 If we can just spend a few hours helping a social cause, all together we can do a huge impact.
 
@@ -41,6 +32,15 @@ If we can just spend a few hours helping a social cause, all together we can do 
 * We want to reinforce the "Get a Task Done" volunteer experience 
 * We want people to use the stregths to help others 
 * We want experts from everyone collaborating with social projects 
+
+###  For people: Enable new environments that lets poeple improve their skills with real impact work
+
+We have seen people frustrated about the following situations:
+
+* Getting blocked and not being able to keep develop their profesional career
+* Gaining experience for a new role is hard  (without real experience) 
+* Entering the job market is hard.  (Entry requirements are too high and people don't have experience)
+* Learning is limited to who you interact and you need to switch jobs to learn from other environment. 
 
 ![Homepage](https://user-images.githubusercontent.com/3884690/35480044-712f6ccc-0406-11e8-85b7-fafaaed22600.png)
 
