@@ -32,7 +32,7 @@ If we can all just spend a few hours helping a social cause, together we can do 
 * This platform aims to remove all the barriers that now prevents people to spend a few time helping on a social project.
 * We want to reinforce the "Get a Task Done" volunteer experience 
 * We want people to use their stregths to help others 
-* We want experts from everyone collaborating with social projects 
+* We want experts from everywhere collaborating with social projects 
 
 ###  For people: Enable new environments that lets poeple improve their skills with real impact work
 
