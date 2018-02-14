@@ -11,7 +11,7 @@ module.exports.controller = function(app) {
     console.log("Result :"+result);
     if(result){
       res.setHeader('Content-Type', 'application/json')
-      return res.status(200).json('Saved data');
+      return res.status(200).json(`Project created: ${result.name}`);
     }else{
        return res.sendStatus(500);
     }

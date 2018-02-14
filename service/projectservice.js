@@ -13,12 +13,11 @@ projectService={
         return new Promise (function(resolve){
             projectData.save((error) => {
                 if (error) {
-                    console.log("ERror in project service :");
+                    console.log("Error in project service :");
                     console.log(error);
                     resolve(false);
                 }
-                console.log("success");
-                resolve(true);
+                resolve(projectData);
             });
         });
     },
@@ -32,7 +31,7 @@ projectService={
     },
 
     deleteProject(){
-        
+
     },
 
     getProjectsByCategory(categoryName){
