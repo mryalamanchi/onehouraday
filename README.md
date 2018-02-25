@@ -45,6 +45,8 @@ We have seen people frustrated about the following situations:
 
 ![Homepage](https://user-images.githubusercontent.com/3884690/35480044-712f6ccc-0406-11e8-85b7-fafaaed22600.png)
 
+## Github norms
+Please lint your contribution before opening a pull request. Linting helps us keep the code clean and maintainable. You can lint your contribution by running npm run lint in the command line. More information about linting can be found at https://eslint.org/docs/rules/
 
 ## Getting Started
 
