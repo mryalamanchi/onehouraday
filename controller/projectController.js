@@ -11,7 +11,7 @@ const createProject = async function (req, res) {
   }
 };
 
-const getCategoryName = async function (req, res) {
+const getByCategoryName = async function (req, res) {
   const categoryName = req.params.category_name;
   const result = await projectService.getProjectsByCategory(categoryName);
   console.log('result :', result);
@@ -24,6 +24,6 @@ const getCategoryName = async function (req, res) {
 };
 
 module.exports.controller = function (app) {
-  app.get('/projects/:categoryname', getCategoryName);
+  app.get('/projects/:category_name', getByCategoryName);
   app.post('/createproject', createProject);
 };
