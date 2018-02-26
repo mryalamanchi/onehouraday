@@ -1,56 +1,50 @@
-var mongoose = require('mongoose')
-var project = require('../model/project');
+const Project = require('../model/project');
 
-projectService={
+const projectService = {
 
-    addProject(projectDetails,res){
-        console.log("In add project :")
-        var projectData=new project(projectDetails);
-        projectData.created_at=Date.now();
-        projectData.updated_at=Date.now();
+  addProject(projectDetails) {
+    const projectData = new Project(projectDetails);
+    projectData.created_at = Date.now();
+    projectData.updated_at = Date.now();
 
-        console.log("Project Data :"+JSON.stringify(projectData));
-        return new Promise (function(resolve){
-            projectData.save((error) => {
-                if (error) {
-                    console.log("Error in project service :");
-                    console.log(error);
-                    resolve(false);
-                }
-                resolve(projectData);
-            });
-        });
-    },
+    console.log('Project Data :', JSON.stringify(projectData));
+    return new Promise((resolve) => {
+      projectData.save((error) => {
+        if (error) {
+          console.error('Error in project service :', error);
+          resolve(false);
+        }
+        resolve(projectData);
+      });
+    });
+  },
 
-    getProjectById(){
+  getProjectById() {
 
-    },
+  },
 
-    getAllProjects(){
+  getAllProjects() {
 
-    },
+  },
 
-    deleteProject(){
+  deleteProject() {
 
-    },
+  },
 
-    getProjectsByCategory(categoryName){
-        console.log("Get Projects by Category")
-        const criteria={}
-        criteria.category=categoryName
-        console.log('criteria :'+criteria)
-        return new Promise(function(resolve){
-            project.find(criteria,function(error,projects){
-                if(error){
-                    resolve(false);
-                     console.log("error")
-                }
-                console.log("success")
-                console.log("Projects :"+projects)
-                resolve(projects)
-            });
-        });
-    }
+  getProjectsByCategory(categoryName) {
+    const criteria = {};
+    criteria.category = categoryName;
+    return new Promise((resolve) => {
+      Project.find(criteria, (error, projects) => {
+        if (error) {
+          console.error('error');
+          resolve(false);
+        }
+        console.log('success. projects :', projects);
+        resolve(projects);
+      });
+    });
+  },
+};
 
-}
-module.exports=projectService
+module.exports = projectService;

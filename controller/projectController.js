@@ -1,33 +1,29 @@
-//var mongoose = require('mongoose')
-//var project = require('../model/project');
+const projectService = require('../service/projectservice');
 
-var projectService=require('../service/projectservice')
+const createProject = async function (req, res) {
+  const result = await projectService.addProject(req.body, res);
+  console.log('Result :', result);
+  if (result) {
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(`Project created: ${result.name}`);
+  } else {
+    res.sendStatus(500);
+  }
+};
 
-module.exports.controller = function(app) {
-//need to include log folder for logging purpose.
- app.post('/createproject', async function(req, res) {
-    console.log("In create project controller :");
-    var result=await projectService.addProject(req.body,res);
-    console.log("Result :"+result);
-    if(result){
-      res.setHeader('Content-Type', 'application/json')
-      return res.status(200).json(`Project created: ${result.name}`);
-    }else{
-       return res.sendStatus(500);
-    }
-  });
+const getCategoryName = async function (req, res) {
+  const categoryName = req.params.category_name;
+  const result = await projectService.getProjectsByCategory(categoryName);
+  console.log('result :', result);
+  if (result.constructor === Array) {
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(result);
+  } else {
+    res.sendStatus(500);
+  }
+};
 
-  app.get('/projects/:categoryname',async function(req,res){
-      var categoryname=req.params.categoryname;
-      console.log("Category Name : "+categoryname);
-      var result=await projectService.getProjectsByCategory(categoryname);
-      console.log('result :'+result);
-      if(result.constructor===Array){
-          res.setHeader('Content-Type', 'application/json')
-          return res.status(200).json(result);
-      }else{
-          return res.sendStatus(500);
-      }
-  });
-
-}
+module.exports.controller = function (app) {
+  app.get('/projects/:categoryname', getCategoryName);
+  app.post('/createproject', createProject);
+};

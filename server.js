@@ -25,7 +25,7 @@ mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/on
 //dynamically include routes
 fs.readdirSync('./controller').forEach(function (file) {
   console.log('File :'+file);
-  if(file.substr(-3) == '.js') {
+  if (file.substr(-3) == '.js') {
       route = require('./controller/' + file);
       route.controller(app);
   }
