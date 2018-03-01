@@ -4,12 +4,12 @@ console.log(__dirname);
 
 module.exports = {
     //webpack configurations details
-    entry: './frontend/src/app.js',
+    entry: './src/app.js',
     output:{
         //path is the absolute path on your machine where
         //you want to output that web pack file
         //joining absolute path with the local path to the public folder
-        path:path.join(__dirname,'frontend','public'),
+        path:path.join(__dirname,'.','public'),
         filename:'bundle.js'
     },
     module:{
@@ -39,6 +39,6 @@ module.exports = {
 
     devtool: 'cheap-module-eval-source-map',
       devServer: {
-        contentBase: path.join(__dirname,'frontend', 'public')
+        contentBase: path.join(__dirname,'.', 'public')
       },
   };
