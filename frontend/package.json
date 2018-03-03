@@ -1,0 +1,55 @@
+{
+  "name": "onehouraday-frontend",
+  "version": "1.0.0",
+  "description": "Community that expose social projects and people can spend one hour to help a social cause",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev-server": "webpack-dev-server",
+    "lint": "./node_modules/.bin/eslint ./**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjconehour/onehouraday.git"
+  },
+  "author": "jawadaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hjconehour/onehouraday/issues"
+  },
+  "homepage": "https://github.com/hjconehour/onehouraday#readme",
+  "dependencies": {
+    "babel-cli": "6.24.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1",
+    "css-loader": "0.28.7",
+    "image-webpack-loader": "^3.4.2",
+    "node-sass": "^4.7.2",
+    "normalize.css": "^7.0.0",
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "0.19.1",
+    "validator": "^9.2.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.6.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "file-loader": "^1.1.6",
+    "icons-loader": "0.0.6",
+    "url-loader": "^0.6.2"
+  }
+}

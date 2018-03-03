@@ -4,11 +4,8 @@
   "description": "Community that expose social projects and people can spend one hour to help a social cause",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "live-server public/",
-    "build": "webpack",
-    "dev-server": "webpack-dev-server",
-    "lint": "./node_modules/.bin/eslint ./**/*.js"
+    "lint": "./node_modules/.bin/eslint ./**/*.js",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -23,25 +20,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mongoose": "^4.13.8",
-    "babel-cli": "6.24.1",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "1.5.2",
-    "babel-preset-react": "6.24.1",
-    "css-loader": "0.28.7",
-    "image-webpack-loader": "^3.4.2",
-    "live-server": "^1.2.0",
-    "node-sass": "^4.7.2",
-    "normalize.css": "^7.0.0",
-    "react": "16.0.0",
-    "react-dom": "16.0.0",
-    "sass-loader": "^6.0.6",
-    "style-loader": "0.19.1",
-    "validator": "^9.2.0",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "mongoose": "^4.13.8"
   },
   "devDependencies": {
     "eslint": "^4.17.0",
@@ -53,8 +32,6 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.6.1",
     "eslint-plugin-standard": "^3.0.1",
-    "file-loader": "^1.1.6",
-    "icons-loader": "0.0.6",
-    "url-loader": "^0.6.2"
+    "nodemon": "^1.17.1"
   }
 }

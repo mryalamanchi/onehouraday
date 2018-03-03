@@ -55,37 +55,28 @@ These instructions will get you a copy of the project up and running on your loc
 * Mongo DB
 
 ### installing 
-* clone the project
-```
+
+```sh
 git clone https://github.com/hjconehour/onehouraday.git <targetDirPath>
-```
-* open <targetDir> from command prompt
-```
 cd <targetDirPath>
 ```
-* install packages
-```
+#### backend
+
+```sh
 npm install
-```
-* install nodemon 
-```
 npm install -g nodemon
-```
-* install mongoose
-```
-npm install mongoose
-```
-* install body-parser
-```
-npm install body-parser
+npm start
 ```
 
-* run project
-```
-nodemon server.js
+#### frontend
+
+```sh
+cd frontend/
+npm install
+npm run dev-server
 ```
 
-* Developed backend code for publish project.As frontend is not developed tested backend code using postman client.
+* Test backend code using postman client.
 Method type:POST
 URL : http://localhost:5000/createproject
 In postman client go in body tab and select raw and data format as JSON(application/json) and post the following data:
