@@ -1,3 +1,4 @@
+const autoprefixer = require('autoprefixer');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -32,10 +33,34 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                autoprefixer({
+                  browsers: [
+                    '> 1%',
+                    'last 4 version',
+                    'Firefox ESR',
+                    'not ie < 9'
+                  ]
+                })
+              ]
+            }
+          }
+        ]
       },
       {
-        exclude: [/\.(js|jsx)$/, /\.html$/, /\.json$/],
+        exclude: [/\.(js|jsx)$/, /\.html$/, /\.css$/, /\.json$/],
         loader: 'file-loader',
         options: {
           name: 'static/media/[name].[hash:8].[ext]'
