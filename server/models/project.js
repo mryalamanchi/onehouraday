@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-const projectSchema = new Schema({
+const projectSchema = new mongoose.Schema({
   name: String,
   description: String,
   category: String,
@@ -18,6 +17,4 @@ const projectSchema = new Schema({
   updated_at: Date,
 });
 
-const Project = mongoose.model('project', projectSchema);
-
-module.exports = Project;
+module.exports = mongoose.model('project', projectSchema);
