@@ -1,8 +1,15 @@
 {
-    "extends": "airbnb",
-    "rules": {
-        "no-console": "off",
-        "func-names": "off",
-        "prefer-destructuring": "off"
-    }
+  "extends": "airbnb",
+  "plugins": [
+    "react"
+  ],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  }
 }
