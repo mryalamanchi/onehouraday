@@ -4,8 +4,9 @@
   "description": "Community that expose social projects and people can spend one hour to help a social cause",
   "main": "server.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint ./**/*.js",
-    "start": "nodemon server.js"
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "lint": "./node_modules/.bin/eslint ./**/*.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/hjconehour/onehouraday#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "mongoose": "^4.13.8"
   },
