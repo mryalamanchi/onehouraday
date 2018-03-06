@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import OneHourADayApp from './components/OneHourADayApp';
+import RouterConfig from './routes';
 
-ReactDOM.render(<OneHourADayApp />, document.getElementById('app'));
+ReactDOM.render(<RouterConfig />, document.getElementById('app'));
