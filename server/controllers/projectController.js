@@ -3,8 +3,16 @@ const Project = mongoose.model('project');
 
 exports.projects = async (req, res) => {
   try {
-    let project = await Project.find().exec();
-    res.status(200).json(project);
+    let projects = await Project.find().exec();
+    if (req.query.search) {
+      let searchString = req.query.search.toLowerCase();
+      let matchingProjects = projects.filter((project) => {
+        return project.name.toLowerCase().includes(searchString) || project.description.toLowerCase().includes(searchString)
+      });
+      res.status(200).json(matchingProjects);
+    } else {
+      res.status(200).json(projects);
+    }
   } catch (err) {
     res.status(404).send(err);
   }
