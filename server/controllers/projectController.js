@@ -10,6 +10,11 @@ exports.projects = async (req, res) => {
         return project.name.toLowerCase().includes(searchString) || project.description.toLowerCase().includes(searchString)
       });
       res.status(200).json(matchingProjects);
+    } else if (req.query.category) {
+      const categoryString = req.query.category.toLowerCase();
+      const matchingProjects = projects.filter(project =>
+        project.category.toLowerCase() === categoryString);
+      res.status(200).json(matchingProjects);
     } else {
       res.status(200).json(projects);
     }
