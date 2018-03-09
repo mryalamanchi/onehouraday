@@ -7,14 +7,14 @@ const projectSchema = new mongoose.Schema({
   contact_detail: {
     contact_type: String,
     contact_info: String,
-    contact_name: String,
+    contact_name: String
   },
   location: {
     country: String,
-    city: String,
+    city: String
   },
   created_at: Date,
-  updated_at: Date,
+  updated_at: Date
 });
 
 module.exports = mongoose.model('project', projectSchema);
