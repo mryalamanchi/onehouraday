@@ -79,3 +79,29 @@ exports.deleteProject = async (req, res) => {
     res.status(404).send(err);
   }
 };
+
+exports.searchResults = async (req, res) => {
+  try {
+    const projects = await Project.find().exec();
+    if (req.query.location) { /* SearchFilter Location set */
+      const searchLocation = req.query.location.toLowerCase();
+      const matchingProjects = projects.filter(project =>
+        project.location.toLowerCase().includes(searchLocation));
+      res.status(200).json(matchingProjects);
+    } else if (req.query.category) { /* SearchFilter Category set */
+      const categoryString = req.query.category.toLowerCase();
+      const matchingProjects = projects.filter(project =>
+        project.category.toLowerCase() === categoryString);
+      res.status(200).json(matchingProjects);
+    } else { /* Volunteer would like to search projects by skills */
+      const skillsSelected = req.query.skills; /* skills array */
+      const matchingProjects = projects.filter(project =>
+        project.skills.some(skill =>
+          skillsSelected.indexOf(skill) >= 0));
+        /* checks if atleast one skill selected is in the current project */
+      res.status(200).json(matchingProjects);
+    }
+  } catch (err) {
+    res.status(404).send(err);
+  }
+};
