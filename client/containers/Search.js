@@ -18,8 +18,8 @@ class Search extends Component {
   handleOnSubmit(event) {
     event.preventDefault();
     const { search } = this.state;
-    //send request to DB for specified project(s) that match search		
-    //set filteredProjects equal to result of DB request
+    // send request to DB for specified project(s) that match search
+    // set filteredProjects equal to result of DB request
   }
 
   render() {
@@ -27,13 +27,14 @@ class Search extends Component {
       <div>
         <h1>Search</h1>
         <form onSubmit={this.handleOnSubmit}>
-          <input type="text"
+          <input
+            type="text"
             value={this.state.search}
-            onChange={this.handleChange.bind(this)}
+            onChange={this.handleChange}
           />
           <button>Search</button>
         </form>
-        <Project />
+        <Project search={this.state.search} />
       </div>
     );
   }
