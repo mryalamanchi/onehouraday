@@ -28,7 +28,7 @@ module.exports = {
         }
       },
       {
-        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        test: [/\.bmp$/, /\.gif$/, /\.png$/],
         loader: 'url-loader',
         options: { limit: 10000 }
       },
