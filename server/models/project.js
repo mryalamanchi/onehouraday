@@ -13,6 +13,7 @@ const projectSchema = new mongoose.Schema({
     country: String,
     city: String
   },
+  skills: Array,
   created_at: Date,
   updated_at: Date
 });
