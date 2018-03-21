@@ -5,13 +5,21 @@ const Project = mongoose.model('project');
 exports.projects = async (req, res) => {
   try {
     const projects = await Project.find().exec();
+    console.log(`Search ${req.query.search}`);
     if (req.query.search) {
       const searchString = req.query.search.toLowerCase();
+      console.log(`Here ${searchString}`);
+      console.log(`Projects ${projects}`);
+      projects.forEach(project =>
+        console.log(`${project.name.toLowerCase()}
+            Desc: ${project.description.toLowerCase()}`));
       const matchingProjects = projects.filter(project =>
         project.name.toLowerCase().includes(searchString)
         || project.description.toLowerCase().includes(searchString));
+      console.log(`Match: ${matchingProjects}`);
       res.status(200).json(matchingProjects);
     } else if (req.query.category) {
+      console.log(`category ${req.query.category}`);
       const categoryString = req.query.category.toLowerCase();
       const matchingProjects = projects.filter(project =>
         project.category.toLowerCase() === categoryString);
@@ -52,6 +60,7 @@ exports.createProject = async (req, res) => {
 
 exports.readProject = async (req, res) => {
   try {
+    console.log('Inside read');
     const project = await Project.findOne({ _id: req.params.id }).exec();
     res.status(200).json(project);
   } catch (err) {
@@ -76,6 +85,7 @@ exports.deleteProject = async (req, res) => {
     await Project.findOneAndRemove({ _id: req.params.id }).exec();
     res.status(200).send();
   } catch (err) {
+    console.log(`ERROR DELETE:${err}`);
     res.status(404).send(err);
   }
 };
@@ -83,10 +93,13 @@ exports.deleteProject = async (req, res) => {
 exports.searchResults = async (req, res) => {
   try {
     const projects = await Project.find().exec();
+    console.log(`Projects ${projects}`);
     if (req.query.location) { /* SearchFilter Location set */
+      console.log(req.query.location);
       const searchLocation = req.query.location.toLowerCase();
       const matchingProjects = projects.filter(project =>
-        project.location.toLowerCase().includes(searchLocation));
+        project.location.country.toLowerCase().includes(searchLocation)
+    || project.location.city.toLowerCase().includes(searchLocation));
       res.status(200).json(matchingProjects);
     } else if (req.query.category) { /* SearchFilter Category set */
       const categoryString = req.query.category.toLowerCase();

@@ -1,5 +1,6 @@
 const autoprefixer = require('autoprefixer');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   entry: './client/',
@@ -72,5 +73,10 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './client/template.html'
     })
-  ]
+  ],
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 9000
+  }
 };
