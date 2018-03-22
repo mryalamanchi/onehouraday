@@ -17,7 +17,10 @@ class Search extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    const { search } = this.state;
+    this.setState({
+      search: event.target.value
+    });
+    // const { search } = this.state;
     // send request to DB for specified project(s) that match search
     // set filteredProjects equal to result of DB request
   }

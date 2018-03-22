@@ -6,8 +6,7 @@ import {
   Link
 } from 'react-router-dom';
 
-import Home from './containers/Home';
-import About from './containers/About';
+import OneHourADayApp from './components/OneHourADayApp';
 import Search from './containers/Search';
 
 const RouterConfig = () => (
@@ -19,8 +18,7 @@ const RouterConfig = () => (
         <li><Link to="/search">Search</Link></li>
       </ul>
 
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about" component={About} />
+      <Route exact path="/" component={OneHourADayApp} />
       <Route exact path="/search" component={Search} />
     </div>
   </Router>
