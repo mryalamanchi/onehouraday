@@ -38,6 +38,7 @@ exports.createProject = async (req, res) => {
       country: req.body.country,
       city: req.body.city
     },
+    skills: req.body.skills,
     created_at: Date.now(),
     updated_at: Date.now()
   });
@@ -75,6 +76,35 @@ exports.deleteProject = async (req, res) => {
   try {
     await Project.findOneAndRemove({ _id: req.params.id }).exec();
     res.status(200).send();
+  } catch (err) {
+    res.status(404).send(err);
+  }
+};
+
+exports.searchResults = async (req, res) => {
+  try {
+    const projects = await Project.find().exec();
+    if (req.query.location) { /* SearchFilter Location set */
+      const searchLocation = req.query.location.toLowerCase();
+      const matchingProjects = projects.filter(project =>
+        project.location.country.toLowerCase().includes(searchLocation)
+    || project.location.city.toLowerCase().includes(searchLocation));
+      res.status(200).json(matchingProjects);
+    } else if (req.query.category) { /* SearchFilter Category set */
+      const categoryString = req.query.category.toLowerCase();
+      const matchingProjects = projects.filter(project =>
+        project.category.toLowerCase() === categoryString);
+      res.status(200).json(matchingProjects);
+    } else if (req.query.skills) { /* Volunteer would like to search projects by skills */
+      const skillsSelected = req.query.skills; /* skills array */
+      const matchingProjects = projects.filter(project =>
+        project.skills.some(skill =>
+          skillsSelected.indexOf(skill) >= 0));
+        /* checks if atleast one skill selected is in the current project */
+      res.status(200).json(matchingProjects);
+    } else {
+      res.status(200).json(projects);
+    }
   } catch (err) {
     res.status(404).send(err);
   }
