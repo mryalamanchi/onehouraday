@@ -34,7 +34,7 @@ If we can all just spend a few hours helping a social cause, together we can do 
 * We want people to use their stregths to help others 
 * We want experts from everywhere collaborating with social projects 
 
-###  For people: Enable new environments that lets poeple improve their skills with real impact work
+###  For people: Enable new environments that lets people improve their skills with real impact work
 
 We have seen people frustrated about the following situations:
 
