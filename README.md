@@ -65,15 +65,7 @@ cd <targetDirPath>
 ```sh
 npm install
 npm install -g nodemon
-npm start
-```
-
-#### frontend
-
-```sh
-cd frontend/
-npm install
-npm run dev-server
+npm run watch:client
 ```
 
 * Test backend code using postman client.
