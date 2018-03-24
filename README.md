@@ -65,7 +65,7 @@ cd <targetDirPath>
 ```sh
 npm install
 npm install -g nodemon
-npm start
+npm run watch:clientpm start
 ```
 
 * Test backend code using postman client.
