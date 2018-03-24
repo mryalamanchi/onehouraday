@@ -1,6 +1,7 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
 import { withStyles } from 'material-ui/styles';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
@@ -16,7 +17,7 @@ const styles = () => ({
     width: 1280,
     height: 550,
     margin: '0 auto',
-    padding: '0px 20px',
+    padding: '10px 20px',
     background: `url(${homeBanner}) no-repeat top center`
   },
   topHeader: {
@@ -47,13 +48,15 @@ const styles = () => ({
     visibility: 'hidden'
   },
   publishBox: {
-    alignSelf: 'flex-start',
-    textAlign: 'right',
-    visibility: 'hidden'
+    textAlign: 'right'
   },
-  publishButton: {
-    fontSize: '14px',
+  publishLink: {
+    fontFamily: 'Roboto',
+    fontSize: 14,
     fontWeight: 900,
+    padding: '10px 50px',
+    textTransform: 'uppercase',
+    textDecoration: 'none',
     color: 'rgba(255, 255, 255, 0.87)',
     backgroundColor: '#4a90e2'
   },
@@ -125,9 +128,7 @@ const Header = (props) => {
           </Typography>
         </Grid>
         <Grid xs={4} item className={publishBox}>
-          <Button variant="raised" color="primary" className={classes.publishButton}>
-            Publish your social project
-          </Button>
+          <Link to="/publish" className={classes.publishLink}>Publish your social project</Link>
         </Grid>
       </Grid>
 
