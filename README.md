@@ -68,14 +68,6 @@ npm install -g nodemon
 npm start
 ```
 
-#### frontend
-
-```sh
-cd frontend/
-npm install
-npm run dev-server
-```
-
 * Test backend code using postman client.
 Method type:POST
 URL : http://localhost:5000/createproject
