@@ -1,9 +1,28 @@
+/* eslint react/prop-types: 0 */
 import React from 'react';
+import { withStyles } from 'material-ui/styles';
+import HeaderBar from './HeaderBar';
 
-const PublishProject = () => (
-  <div>
-    <h3>PublishProject info here... </h3>
-  </div>
-);
+const styles = {
+  root: {
+    flexGrow: 1
+  }
+};
 
-export default PublishProject;
+function PublishProject(props) {
+  const { classes } = props;
+  const param = {
+    title: 'One hour a Day',
+    action: 'Publish a new social project',
+    link: '/',
+    icon: 'arrow_back'
+  };
+  return (
+    <div className={classes.root}>
+      <HeaderBar param={param} />
+      <h3>PublishProject form here... </h3>
+    </div>
+  );
+}
+
+export default withStyles(styles)(PublishProject);
