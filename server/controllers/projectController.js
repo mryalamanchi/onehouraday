@@ -87,8 +87,7 @@ exports.searchResults = async (req, res) => {
     const projects = await Project.find().exec();
     if (req.query.location) { /* SearchFilter Location set */
       const projectsByLocation = await Project.find({
-        $or: [{ location: { country: { $exists: true } } },
-          { location: { city: { $exists: true } } }]
+        location: { $exists: true }
       }).exec();
       console.log(`Projects by loc : ${projectsByLocation}`);
       const searchLocation = req.query.location.toLowerCase();
