@@ -88,7 +88,6 @@ exports.searchResults = async (req, res) => {
       const projectsByLocation = await Project.find({
         location: { $exists: true }
       }).exec();
-      console.log(`Projects by loc : ${projectsByLocation}`);
       const searchLocation = req.query.location.toLowerCase();
       const matchingProjects = projectsByLocation.filter(project =>
         (project.location.country !== undefined &&
@@ -104,11 +103,11 @@ exports.searchResults = async (req, res) => {
       res.status(200).json(matchingProjects);
     } else if (req.query.skills) { /* Volunteer would like to search projects by skills */
       const projectsBySkills = await Project.find({ skills: { $exists: true } }).exec();
-      const skillsSelected = req.query.skills; /* skills array */
+      const skillsSelected = req.query.skills.map(skill => skill.toLowerCase()); /* skills array */
       const matchingProjects = projectsBySkills.filter(project =>
         project.skills.some(skill =>
-          skillsSelected.indexOf(skill) >= 0));
-        /* checks if atleast one skill selected is in the current project */
+          skillsSelected.indexOf(skill.toLowerCase()) >= 0));
+      /* checks if atleast one skill selected is in the current project */
       res.status(200).json(matchingProjects);
     } else {
       res.status(200).json(projects);
