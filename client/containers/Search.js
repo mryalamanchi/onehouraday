@@ -1,29 +1,35 @@
 import React, { Component } from 'react';
+// import axios from 'axios';
+
 import Project from './Project';
 
 class Search extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      search: ''
+      searchQuery: ''
     };
   }
 
-  handleChange(event) {
+  // TODO: replace with LinkedStateMixin https://reactjs.org/docs/two-way-binding-helpers.html
+  handleChange = (event) => {
     this.setState({
-      search: event.target.value
+      searchQuery: event.target.value
     });
-  }
+  };
 
-  handleOnSubmit(event) {
+  handleOnSubmit = (event) => {
     event.preventDefault();
-    this.setState({
-      search: event.target.value
-    });
-    // const { search } = this.state;
-    // send request to DB for specified project(s) that match search
+    // const { searchQuery } = this.state;
+    // send request to DB for specified project(s) that match searchQuery
     // set filteredProjects equal to result of DB request
-  }
+    /*
+    axios.get('http://localhost:9000/projects?abc')
+      .then((response) => {
+        console.log(response);
+      });
+    */
+  };
 
   render() {
     return (
@@ -32,12 +38,12 @@ class Search extends Component {
         <form onSubmit={this.handleOnSubmit}>
           <input
             type="text"
-            value={this.state.search}
+            value={this.state.searchQuery}
             onChange={this.handleChange}
           />
-          <button>Search</button>
+          <button onClick={this.handleOnSubmit}>Search</button>
         </form>
-        <Project search={this.state.search} />
+        <Project search={this.state.searchQuery} />
       </div>
     );
   }

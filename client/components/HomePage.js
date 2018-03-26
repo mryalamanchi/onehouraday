@@ -11,6 +11,8 @@ import wallClock from '../images/wall_clock.svg';
 import group from '../images/group.svg';
 import homeBanner from '../images/gum_homebanner.jpg';
 
+// import Search from '../containers/Search';
+
 const styles = () => ({
   headerArea: {
     width: 1280,
@@ -95,15 +97,74 @@ const styles = () => ({
   }
 });
 
-const Header = (props) => {
+const HomePage = (props) => {
   const { classes } = props;
   const topHeader = classNames(`${classes.topHeader}`, `${classes.flex1}`);
-  const countryBox = classNames(`${classes.countryBox}`);
+  const countryBox = classNames(`${classes.countryBpropsox}`);
   const titleBox = classNames(`${classes.titleBox}`);
   const publishBox = classNames(`${classes.publishBox}`);
   const searchBox = classNames(`${classes.flex2}`);
   const bottomHeader = classNames(`${classes.bottomHeader}`, `${classes.flex2}`);
   const valueBox = classNames(`${classes.valueBox}`);
+
+  const bottomHeaderContent = (
+    <Grid container xs={12} className={bottomHeader} justify="center">
+
+      <Grid xs={4} item className={valueBox}>
+        <Avatar className={classes.valueImageBox}>
+          <img src={handShake} className={classes.valueImage} alt="handShake" />
+        </Avatar>
+        <div className={classes.valueTextBox}>
+          <Typography className={classes.valueText}>
+            Be a hero. Help an organisation and improve your skills
+          </Typography>
+        </div>
+      </Grid>
+
+      <Grid xs={4} item className={valueBox}>
+        <Avatar className={classes.valueImageBox}>
+          <img src={wallClock} className={classes.valueImage} alt="wallClock" />
+        </Avatar>
+        <div className={classes.valueTextBox}>
+          <Typography className={classes.valueText}>
+            All you need to dedicate is an hour
+          </Typography>
+        </div>
+      </Grid>
+
+      <Grid xs={4} item className={valueBox}>
+        <Avatar className={classes.valueImageBox}>
+          <img src={group} className={classes.valueImage} alt="group" />
+        </Avatar>
+        <div className={classes.valueTextBox}>
+          <Typography className={classes.valueText}>
+            A little collaboration from each of us can generate a huge impact
+          </Typography>
+        </div>
+      </Grid>
+
+    </Grid>
+  );
+
+  const topHeaderContent = (
+    <Grid container xs={12} className={topHeader}>
+      <Grid xs={4} item className={countryBox}>
+        <Button variant="raised" color="primary">
+          Primary
+        </Button>
+      </Grid>
+      <Grid xs={4} item className={titleBox}>
+        <Typography variant="title" className={classes.title}>
+          One hour a Day
+        </Typography>
+      </Grid>
+      <Grid xs={4} item className={publishBox}>
+        <Button variant="raised" color="primary" className={classes.publishButton}>
+          Publish your social project
+        </Button>
+      </Grid>
+    </Grid>
+  );
 
   return (
     <Grid
@@ -113,70 +174,19 @@ const Header = (props) => {
       alignItems="stretch"
       className={classes.headerArea}
     >
-      <Grid container xs={12} className={topHeader}>
-        <Grid xs={4} item className={countryBox}>
-          <Button variant="raised" color="primary">
-            Primary
-          </Button>
-        </Grid>
-        <Grid xs={4} item className={titleBox}>
-          <Typography variant="title" className={classes.title}>
-            One hour a Day
-          </Typography>
-        </Grid>
-        <Grid xs={4} item className={publishBox}>
-          <Button variant="raised" color="primary" className={classes.publishButton}>
-            Publish your social project
-          </Button>
-        </Grid>
-      </Grid>
+
+      {topHeaderContent}
 
       <Grid xs={12} item className={searchBox}>
         <Typography variant="subheading" className={classes.subtitle}>
           Spend 1 hour and help a social cause
         </Typography>
       </Grid>
-
-      <Grid container xs={12} className={bottomHeader} justify="center">
-
-        <Grid xs={4} item className={valueBox}>
-          <Avatar className={classes.valueImageBox}>
-            <img src={handShake} className={classes.valueImage} alt="handShake" />
-          </Avatar>
-          <div className={classes.valueTextBox}>
-            <Typography className={classes.valueText}>
-              Be a hero. Help an organisation and improve your skills
-            </Typography>
-          </div>
-        </Grid>
-
-        <Grid xs={4} item className={valueBox}>
-          <Avatar className={classes.valueImageBox}>
-            <img src={wallClock} className={classes.valueImage} alt="wallClock" />
-          </Avatar>
-          <div className={classes.valueTextBox}>
-            <Typography className={classes.valueText}>
-              All you need to dedicate is an hour
-            </Typography>
-          </div>
-        </Grid>
-
-        <Grid xs={4} item className={valueBox}>
-          <Avatar className={classes.valueImageBox}>
-            <img src={group} className={classes.valueImage} alt="group" />
-          </Avatar>
-          <div className={classes.valueTextBox}>
-            <Typography className={classes.valueText}>
-              A little collaboration from each of us can generate a huge impact
-            </Typography>
-          </div>
-        </Grid>
-
-      </Grid>
+      {bottomHeaderContent}
 
     </Grid>
   );
 };
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(HomePage);
 
