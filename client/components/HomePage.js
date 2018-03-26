@@ -98,7 +98,7 @@ const styles = () => ({
 const Header = (props) => {
   const { classes } = props;
   const topHeader = classNames(`${classes.topHeader}`, `${classes.flex1}`);
-  const countryBox = classNames(`${classes.countryBox}`);
+  const countryBox = classNames(`${classes.countryBpropsox}`);
   const titleBox = classNames(`${classes.titleBox}`);
   const publishBox = classNames(`${classes.publishBox}`);
   const searchBox = classNames(`${classes.flex2}`);
