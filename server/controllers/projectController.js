@@ -4,7 +4,7 @@ const Project = mongoose.model('project');
 
 exports.projects = async (req, res) => {
   try {
-    const projects = await Project.find().exec();
+    const projects = await Project.find({ name: { $exists: true } }).exec();
     if (req.query.search) {
       const searchString = req.query.search.toLowerCase();
       const matchingProjects = projects.filter(project =>
@@ -12,8 +12,9 @@ exports.projects = async (req, res) => {
         || project.description.toLowerCase().includes(searchString));
       res.status(200).json(matchingProjects);
     } else if (req.query.category) {
+      const projectsByCategory = await Project.find({ category: { $exists: true } }).exec();
       const categoryString = req.query.category.toLowerCase();
-      const matchingProjects = projects.filter(project =>
+      const matchingProjects = projectsByCategory.filter(project =>
         project.category.toLowerCase() === categoryString);
       res.status(200).json(matchingProjects);
     } else {
@@ -85,19 +86,28 @@ exports.searchResults = async (req, res) => {
   try {
     const projects = await Project.find().exec();
     if (req.query.location) { /* SearchFilter Location set */
+      const projectsByLocation = await Project.find({
+        $or: [{ location: { country: { $exists: true } } },
+          { location: { city: { $exists: true } } }]
+      }).exec();
+      console.log(`Projects by loc : ${projectsByLocation}`);
       const searchLocation = req.query.location.toLowerCase();
-      const matchingProjects = projects.filter(project =>
-        project.location.country.toLowerCase().includes(searchLocation)
-    || project.location.city.toLowerCase().includes(searchLocation));
+      const matchingProjects = projectsByLocation.filter(project =>
+        (project.location.country !== undefined &&
+         project.location.country.toLowerCase().includes(searchLocation)) ||
+        (project.location.city !== undefined &&
+         project.location.city.toLowerCase().includes(searchLocation)));
       res.status(200).json(matchingProjects);
     } else if (req.query.category) { /* SearchFilter Category set */
+      const projectsByCategory = await Project.find({ category: { $exists: true } }).exec();
       const categoryString = req.query.category.toLowerCase();
-      const matchingProjects = projects.filter(project =>
+      const matchingProjects = projectsByCategory.filter(project =>
         project.category.toLowerCase() === categoryString);
       res.status(200).json(matchingProjects);
     } else if (req.query.skills) { /* Volunteer would like to search projects by skills */
+      const projectsBySkills = await Project.find({ skills: { $exists: true } }).exec();
       const skillsSelected = req.query.skills; /* skills array */
-      const matchingProjects = projects.filter(project =>
+      const matchingProjects = projectsBySkills.filter(project =>
         project.skills.some(skill =>
           skillsSelected.indexOf(skill) >= 0));
         /* checks if atleast one skill selected is in the current project */
