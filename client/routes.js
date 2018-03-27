@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import OneHourADayApp from './components/OneHourADayApp';
+import OneHourADayApp from './containers/OneHourADayApp';
 
 export default () => (
   <Router>
