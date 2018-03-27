@@ -1,11 +1,14 @@
 /* eslint react/prop-types: 0 */
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import Avatar from 'material-ui/Avatar';
+
 import handShake from '../images/hand_shake.svg';
 import wallClock from '../images/wall_clock.svg';
 import group from '../images/group.svg';
@@ -50,8 +53,7 @@ const styles = () => ({
   },
   publishBox: {
     alignSelf: 'flex-start',
-    textAlign: 'right',
-    visibility: 'hidden'
+    textAlign: 'right'
   },
   publishButton: {
     fontSize: '14px',
@@ -97,96 +99,108 @@ const styles = () => ({
   }
 });
 
-const HomePage = (props) => {
-  const { classes } = props;
-  const topHeader = classNames(`${classes.topHeader}`, `${classes.flex1}`);
-  const countryBox = classNames(`${classes.countryBpropsox}`);
-  const titleBox = classNames(`${classes.titleBox}`);
-  const publishBox = classNames(`${classes.publishBox}`);
-  const searchBox = classNames(`${classes.flex2}`);
-  const bottomHeader = classNames(`${classes.bottomHeader}`, `${classes.flex2}`);
-  const valueBox = classNames(`${classes.valueBox}`);
+class HomePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  const bottomHeaderContent = (
-    <Grid container xs={12} className={bottomHeader} justify="center">
+  handlePublishProject = () => {
+  };
 
-      <Grid xs={4} item className={valueBox}>
-        <Avatar className={classes.valueImageBox}>
-          <img src={handShake} className={classes.valueImage} alt="handShake" />
-        </Avatar>
-        <div className={classes.valueTextBox}>
-          <Typography className={classes.valueText}>
-            Be a hero. Help an organisation and improve your skills
+  render() {
+    const { classes } = this.props;
+    const topHeader = classNames(`${classes.topHeader}`, `${classes.flex1}`);
+    const countryBox = classNames(`${classes.countryBpropsox}`);
+    const titleBox = classNames(`${classes.titleBox}`);
+    const publishBox = classNames(`${classes.publishBox}`);
+    const searchBox = classNames(`${classes.flex2}`);
+    const bottomHeader = classNames(`${classes.bottomHeader}`, `${classes.flex2}`);
+    const valueBox = classNames(`${classes.valueBox}`);
+
+    const bottomHeaderContent = (
+      <Grid container xs={12} className={bottomHeader} justify="center">
+
+        <Grid xs={4} item className={valueBox}>
+          <Avatar className={classes.valueImageBox}>
+            <img src={handShake} className={classes.valueImage} alt="handShake" />
+          </Avatar>
+          <div className={classes.valueTextBox}>
+            <Typography className={classes.valueText}>
+              Be a hero. Help an organisation and improve your skills
+            </Typography>
+          </div>
+        </Grid>
+
+        <Grid xs={4} item className={valueBox}>
+          <Avatar className={classes.valueImageBox}>
+            <img src={wallClock} className={classes.valueImage} alt="wallClock" />
+          </Avatar>
+          <div className={classes.valueTextBox}>
+            <Typography className={classes.valueText}>
+              All you need to dedicate is an hour
+            </Typography>
+          </div>
+        </Grid>
+
+        <Grid xs={4} item className={valueBox}>
+          <Avatar className={classes.valueImageBox}>
+            <img src={group} className={classes.valueImage} alt="group" />
+          </Avatar>
+          <div className={classes.valueTextBox}>
+            <Typography className={classes.valueText}>
+              A little collaboration from each of us can generate a huge impact
+            </Typography>
+          </div>
+        </Grid>
+
+      </Grid>
+    );
+
+    const topHeaderContent = (
+      <Grid container xs={12} className={topHeader}>
+        <Grid xs={4} item className={countryBox}>
+          <Button variant="raised" color="primary">
+            Primary
+          </Button>
+        </Grid>
+        <Grid xs={4} item className={titleBox}>
+          <Typography variant="title" className={classes.title}>
+            One hour a Day
           </Typography>
-        </div>
+        </Grid>
+        <Grid xs={4} item className={publishBox}>
+          <Link to="/publish">
+            <Button onClick={this.handlePublishProject} variant="raised" color="primary" className={classes.publishButton}>
+            Publish your social project
+            </Button>
+          </Link>
+        </Grid>
       </Grid>
+    );
 
-      <Grid xs={4} item className={valueBox}>
-        <Avatar className={classes.valueImageBox}>
-          <img src={wallClock} className={classes.valueImage} alt="wallClock" />
-        </Avatar>
-        <div className={classes.valueTextBox}>
-          <Typography className={classes.valueText}>
-            All you need to dedicate is an hour
+    return (
+      <Grid
+        container
+        direction="column"
+        justify="center"
+        alignItems="stretch"
+        className={classes.headerArea}
+      >
+
+        {topHeaderContent}
+
+        <Grid xs={12} item className={searchBox}>
+          <Typography variant="subheading" className={classes.subtitle}>
+            Spend 1 hour and help a social cause
           </Typography>
-        </div>
+        </Grid>
+        {bottomHeaderContent}
+
       </Grid>
-
-      <Grid xs={4} item className={valueBox}>
-        <Avatar className={classes.valueImageBox}>
-          <img src={group} className={classes.valueImage} alt="group" />
-        </Avatar>
-        <div className={classes.valueTextBox}>
-          <Typography className={classes.valueText}>
-            A little collaboration from each of us can generate a huge impact
-          </Typography>
-        </div>
-      </Grid>
-
-    </Grid>
-  );
-
-  const topHeaderContent = (
-    <Grid container xs={12} className={topHeader}>
-      <Grid xs={4} item className={countryBox}>
-        <Button variant="raised" color="primary">
-          Primary
-        </Button>
-      </Grid>
-      <Grid xs={4} item className={titleBox}>
-        <Typography variant="title" className={classes.title}>
-          One hour a Day
-        </Typography>
-      </Grid>
-      <Grid xs={4} item className={publishBox}>
-        <Button variant="raised" color="primary" className={classes.publishButton}>
-          Publish your social project
-        </Button>
-      </Grid>
-    </Grid>
-  );
-
-  return (
-    <Grid
-      container
-      direction="column"
-      justify="center"
-      alignItems="stretch"
-      className={classes.headerArea}
-    >
-
-      {topHeaderContent}
-
-      <Grid xs={12} item className={searchBox}>
-        <Typography variant="subheading" className={classes.subtitle}>
-          Spend 1 hour and help a social cause
-        </Typography>
-      </Grid>
-      {bottomHeaderContent}
-
-    </Grid>
-  );
-};
+    );
+  }
+}
 
 export default withStyles(styles)(HomePage);
 
