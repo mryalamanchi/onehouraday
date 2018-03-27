@@ -8,6 +8,7 @@ import {
 
 import HomePage from '../components/HomePage';
 import Search from './Search';
+import PublishProject from './PublishProject';
 
 const styles = () => ({
   root: {
@@ -22,6 +23,7 @@ const OneHourADayApp = (props) => {
       <li><Link to="/">Home</Link></li>
       <li><Link to="/about">About</Link></li>
       <li><Link to="/search">Search</Link></li>
+      <li><Link to="/publish">Publish</Link></li>
     </ul>
   );
   const { classes } = props;
@@ -30,6 +32,7 @@ const OneHourADayApp = (props) => {
       {nav}
       <Route exact path="/" component={HomePage} />
       <Route exact path="/search" component={Search} />
+      <Route exact path="/publish" component={PublishProject} />
     </div>
   );
 };
