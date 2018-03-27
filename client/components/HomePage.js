@@ -8,6 +8,7 @@ import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import Avatar from 'material-ui/Avatar';
+import TextField from 'material-ui/TextField';
 
 import handShake from '../images/hand_shake.svg';
 import wallClock from '../images/wall_clock.svg';
@@ -179,6 +180,22 @@ class HomePage extends Component {
       </Grid>
     );
 
+    const searchArea = (
+      <Grid container xs={12} className={topHeader}>
+        <Grid xs={3}>.</Grid>
+        <Grid xs={2} item>
+          <TextField
+            defaultValue="dance"
+          />
+        </Grid>
+        <Grid xs={2}>
+          <Button variant="raised" color="primary">
+            Search
+          </Button>
+        </Grid>
+      </Grid>
+    );
+
     return (
       <Grid
         container
@@ -189,6 +206,8 @@ class HomePage extends Component {
       >
 
         {topHeaderContent}
+
+        {searchArea}
 
         <Grid xs={12} item className={searchBox}>
           <Typography variant="subheading" className={classes.subtitle}>
