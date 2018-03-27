@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 
-import Project from './Project';
+import Project from '../components/Project';
+import dummyProjects from '../dummy_data/dummy_projects';
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchQuery: ''
+      searchQuery: '',
+      results: dummyProjects
     };
   }
 
@@ -32,18 +34,30 @@ class Search extends Component {
   };
 
   render() {
+    const projects = this.state.results.map(project =>
+      <Project {... project} />);
+
     return (
       <div>
         <h1>Search</h1>
+        <p>{this.state.results.length} results for {this.state.searchQuery}</p>
         <form onSubmit={this.handleOnSubmit}>
           <input
             type="text"
+            placeholder="Learn by helping. Search for a task to do."
             value={this.state.searchQuery}
             onChange={this.handleChange}
           />
           <button onClick={this.handleOnSubmit}>Search</button>
         </form>
-        <Project search={this.state.searchQuery} />
+        <div>
+          Filter by
+          <button>Location</button>
+          <button>Category</button>
+          <button>Skills</button>
+        </div>
+
+        {projects}
       </div>
     );
   }

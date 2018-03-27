@@ -6,8 +6,8 @@ import {
   Link
 } from 'react-router-dom';
 
-import HomePage from './HomePage';
-import Search from '../containers/Search';
+import HomePage from '../components/HomePage';
+import Search from './Search';
 
 const styles = () => ({
   root: {
