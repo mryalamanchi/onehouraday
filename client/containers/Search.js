@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 import Project from '../components/Project';
 import dummyProjects from '../dummy_data/dummy_projects';
@@ -22,15 +22,11 @@ class Search extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    // const { searchQuery } = this.state;
-    // send request to DB for specified project(s) that match searchQuery
-    // set filteredProjects equal to result of DB request
-    /*
-    axios.get('http://localhost:9000/projects?abc')
-      .then((response) => {
-        console.log(response);
-      });
-    */
+    console.log('handleOnSubmit');
+    const { searchQuery } = this.state;
+    axios.get(`http://localhost:3000/api/project?search=${searchQuery}`).then((res) => {
+      this.setState({ results: res.data });
+    });
   };
 
   render() {
