@@ -15,6 +15,7 @@ import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
 import Public from 'material-ui-icons/Public';
 import Place from 'material-ui-icons/Place';
+import Photo from 'material-ui-icons/Photo';
 import HeaderBar from './HeaderBar';
 
 const styles = {
@@ -27,16 +28,40 @@ const styles = {
   flex: {
     display: 'flex'
   },
+  flex1: {
+    flex: 1
+  },
   text: {
     color: 'rgba(0, 0, 0, 0.38)'
+  },
+  fillParent: {
+    width: '100%',
+    height: '100%'
   },
   formRow: {
     marginTop: 30,
     marginBottom: 40
   },
+  formItem3Col: {
+    paddingRight: 30,
+    width: '25%'
+  },
   formItem2Col: {
     paddingRight: 30,
     width: '50%'
+  },
+  projectPhoto: {
+    width: 160,
+    height: 160,
+    color: '#9e9e9e'
+  },
+  boxProjectPhoto: {
+    height: '100%',
+    backgroundColor: '#D6D6D6',
+    border: 'solid 1px #979797',
+    padding: '60px 60px',
+    width: '30%',
+    margin: '0 auto'
   },
   boxIcon: {
     alignItems: 'center',
@@ -72,6 +97,10 @@ class PublishProject extends React.Component {
     this.state = {
       value: ''
     };
+    // fetch from service?
+    this.props.categories = ['EDUCATION', 'HUNGRY', 'POVERTY', 'HEALTH',
+      'ENVIRONMENT', 'PEACE', 'JUSTICE', 'ANIMALS',
+      'BUSINESS', 'HUMAN RIGHTS', 'OTHERS'];
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -86,8 +115,8 @@ class PublishProject extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('A name was submitted: '); //  + this.state.value);
-    console.log(this.state.value);
+    console.log('A form was submitted: '); //  + this.state.value);
+    console.log(this.state);
     event.preventDefault();
   }
 
@@ -104,6 +133,52 @@ class PublishProject extends React.Component {
         <HeaderBar param={headerParam} />
 
         <form autoComplete="off">
+
+          <div className={classes.formRow}>
+            <FormGroup className={classes.boxProjectPhoto}>
+              <FormGroup>
+                <IconButton className={classes.fillParent}>
+                  <Photo className={classes.projectPhoto} />
+                </IconButton>
+              </FormGroup>
+              <TextField
+                id="projectPhoto"
+                label="UPLOAD YOUR PROJECT PHOTO"
+                value={this.state.projectPhoto}
+                onChange={this.handleChange('projectPhoto')}
+                margin="normal"
+              />
+            </FormGroup>
+          </div>
+
+          <div className={classes.formRow}>
+            <FormGroup>
+              <TextField
+                id="projectName"
+                label="What&apos;s your project name?"
+                value={this.state.projectName}
+                onChange={this.handleChange('projectName')}
+                fullWidth
+                margin="normal"
+              />
+            </FormGroup>
+          </div>
+
+          <FormLabel component="legend">What categories does your project belong to?</FormLabel>
+          <div >
+            {this.props.categories.map(category =>
+              (<FormControlLabel
+                className={classes.formItem3Col}
+                control={
+                  <Checkbox
+                    checked={this.state[category]}
+                    onChange={this.handleChange(category)}
+                    value={category}
+                  />
+                }
+                label={category}
+              />))}
+          </div>
 
           <FormLabel component="legend" className={classes.formRow}>What&apos;s your project about?</FormLabel>
 
