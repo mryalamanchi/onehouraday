@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
+import Button from 'material-ui/Button';
 import Public from 'material-ui-icons/Public';
 import Place from 'material-ui-icons/Place';
 import Photo from 'material-ui-icons/Photo';
@@ -31,8 +32,8 @@ const styles = {
   flex1: {
     flex: 1
   },
-  text: {
-    color: 'rgba(0, 0, 0, 0.38)'
+  hidden: {
+    display: 'none'
   },
   fillParent: {
     width: '100%',
@@ -56,12 +57,17 @@ const styles = {
     color: '#9e9e9e'
   },
   boxProjectPhoto: {
-    height: '100%',
-    backgroundColor: '#D6D6D6',
-    border: 'solid 1px #979797',
-    padding: '60px 60px',
     width: '30%',
-    margin: '0 auto'
+    height: '100%',
+    textAlign: 'center',
+    padding: '60px 60px',
+    margin: '0 auto',
+    border: 'solid 1px #979797',
+    backgroundColor: '#D6D6D6'
+  },
+  labelProjectPhoto: {
+    borderBottom: 'solid 1px #ffffff',
+    color: '#ffffff'
   },
   boxIcon: {
     alignItems: 'center',
@@ -136,18 +142,22 @@ class PublishProject extends React.Component {
 
           <div className={classes.formRow}>
             <FormGroup className={classes.boxProjectPhoto}>
-              <FormGroup>
-                <IconButton className={classes.fillParent}>
-                  <Photo className={classes.projectPhoto} />
-                </IconButton>
-              </FormGroup>
-              <TextField
-                id="projectPhoto"
-                label="UPLOAD YOUR PROJECT PHOTO"
-                value={this.state.projectPhoto}
-                onChange={this.handleChange('projectPhoto')}
-                margin="normal"
-              />
+              <IconButton component="label" className={classes.fillParent}>
+                <Photo className={classes.projectPhoto} />
+                <input
+                  accept="image/*"
+                  className={classes.hidden}
+                  id="projectPhoto"
+                  onChange={this.handleChange('projectPhoto')}
+                  value={this.state.projectPhoto}
+                  type="file"
+                />
+              </IconButton>
+              <label htmlFor="projectPhoto">
+                <Button component="span" className={classes.labelProjectPhoto}>
+                  UPLOAD YOUR PROJECT PHOTO
+                </Button>
+              </label>
             </FormGroup>
           </div>
 
