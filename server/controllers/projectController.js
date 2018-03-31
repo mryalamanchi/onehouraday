@@ -109,12 +109,7 @@ exports.searchResults = async (req, res) => {
       QueryLoc.$or.push({ 'location.city': searchlocation });
       q.$or.push(QueryLoc); // add to the query object
     }
-    //    if (req.query.skills !== '') {
-    //      const skillsSelected = req.query.skills.map(skill => skill.toLowerCase());
-    //      const matchingProjects = projectsBySkills.filter(project =>
-    //        project.skills.some(skill =>
-    //          skillsSelected.indexOf(skill.toLowerCase()) >= 0));
-    //    }
+
     if ((req.query.skills !== undefined) && ((req.query.skills).length > 0)) {
       let skillsSelected = req.query.skills;
       if (!Array.isArray(skillsSelected)) { skillsSelected = new Array(skillsSelected); }
