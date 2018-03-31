@@ -83,35 +83,57 @@ exports.deleteProject = async (req, res) => {
 
 exports.searchResults = async (req, res) => {
   try {
-    const projects = await Project.find().exec();
-    if (req.query.location) { /* SearchFilter Location set */
-      const projectsByLocation = await Project.find({
-        location: { $exists: true }
-      }).exec();
-      const searchLocation = req.query.location.toLowerCase();
-      const matchingProjects = projectsByLocation.filter(project =>
-        (project.location.country !== undefined &&
-         project.location.country.toLowerCase().includes(searchLocation)) ||
-        (project.location.city !== undefined &&
-         project.location.city.toLowerCase().includes(searchLocation)));
-      res.status(200).json(matchingProjects);
-    } else if (req.query.category) { /* SearchFilter Category set */
-      const projectsByCategory = await Project.find({ category: { $exists: true } }).exec();
-      const categoryString = req.query.category.toLowerCase();
-      const matchingProjects = projectsByCategory.filter(project =>
-        project.category.toLowerCase() === categoryString);
-      res.status(200).json(matchingProjects);
-    } else if (req.query.skills) { /* Volunteer would like to search projects by skills */
-      const projectsBySkills = await Project.find({ skills: { $exists: true } }).exec();
-      const skillsSelected = req.query.skills.map(skill => skill.toLowerCase()); /* skills array */
-      const matchingProjects = projectsBySkills.filter(project =>
-        project.skills.some(skill =>
-          skillsSelected.indexOf(skill.toLowerCase()) >= 0));
-      /* checks if atleast one skill selected is in the current project */
-      res.status(200).json(matchingProjects);
-    } else {
-      res.status(200).json(projects);
+    const q = {}; // declare the query object
+    q.$or = [];
+    if ((req.query.search !== undefined) && ((req.query.search).length > 0)) {
+      const searchString = req.query.search;
+      const searchQuery = {}; // declare the query object
+      searchQuery.$or = [];
+      console.log(searchString);
+      const regexpr = new RegExp(`(${searchString})`, 'gi');
+      searchQuery.$or.push({ name: { $regex: regexpr } });
+      searchQuery.$or.push({ description: { $regex: regexpr } });
+      q.$or.push(searchQuery); // add to the query object
     }
+    if ((req.query.category !== undefined) && ((req.query.category).length > 0)) {
+      const searchCategory = { category: req.query.category };
+      q.$or.push(searchCategory);
+      console.log(searchCategory);
+    }
+    if ((req.query.location !== undefined) && ((req.query.location).length > 0)) {
+      const searchlocation = req.query.location;
+      const QueryLoc = {}; // declare the query object
+      QueryLoc.$or = [];
+      console.log(searchlocation);
+      QueryLoc.$or.push({ 'location.country': searchlocation });
+      QueryLoc.$or.push({ 'location.city': searchlocation });
+      q.$or.push(QueryLoc); // add to the query object
+    }
+    //    if (req.query.skills !== '') {
+    //      const skillsSelected = req.query.skills.map(skill => skill.toLowerCase());
+    //      const matchingProjects = projectsBySkills.filter(project =>
+    //        project.skills.some(skill =>
+    //          skillsSelected.indexOf(skill.toLowerCase()) >= 0));
+    //    }
+    if ((req.query.skills !== undefined) && ((req.query.skills).length > 0)) {
+      let skillsSelected = req.query.skills;
+      if (!Array.isArray(skillsSelected)) { skillsSelected = new Array(skillsSelected); }
+
+      const array = [];
+      console.log(skillsSelected);
+      for (let i = 0; i < skillsSelected.length; i += 1) {
+        const e = skillsSelected[i];
+        array.push(e);
+      }
+      const QuerySkills = { skills: { $in: array } };
+
+      console.log(QuerySkills);
+      q.$or.push(QuerySkills);
+    }
+
+
+    const projects = await Project.find(q);
+    res.status(200).json(projects);
   } catch (err) {
     res.status(404).send(err);
   }
