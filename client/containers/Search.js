@@ -1,43 +1,87 @@
 import React, { Component } from 'react';
-import Project from './Project';
+import axios from 'axios';
+
+import Project from '../components/Project';
+import dummyProjects from '../dummy_data/dummy_projects';
+
+const BASEURL = 'http://localhost:3000/api';
 
 class Search extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      search: ''
+      searchQuery: '',
+      results: dummyProjects
     };
   }
 
-  handleChange(event) {
-    this.setState({
-      search: event.target.value
-    });
-  }
+  getQueryURI = () => {
+    const { searchQuery } = this.state;
+    return `${BASEURL}/project?search=${searchQuery}`;
+  };
 
-  handleOnSubmit(event) {
-    event.preventDefault();
+  // TODO: replace with LinkedStateMixin https://reactjs.org/docs/two-way-binding-helpers.html
+  handleChange = (event) => {
     this.setState({
-      search: event.target.value
+      searchQuery: event.target.value
     });
-    // const { search } = this.state;
-    // send request to DB for specified project(s) that match search
-    // set filteredProjects equal to result of DB request
-  }
+  };
+
+  handleOnSubmit = (event) => {
+    event.preventDefault();
+    console.log('handleOnSubmit');
+    axios.get(this.getQueryURI()).then((res) => {
+      console.dir(res.data);
+      this.setState({ results: res.data });
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+
+  // for isolated dev of client-side
+  populateResults = () => {
+    console.log('populate with fake results');
+    this.setState({
+      results: dummyProjects
+    });
+  };
+
+  // put request with dummy projects
+  submitResults = () => {
+    console.log('post request with fake results');
+    dummyProjects.forEach((project) => {
+      axios.post(`${BASEURL}/project`, Object.assign({}, project, project.contact_detail, project.location));
+    });
+  };
 
   render() {
+    const projects = this.state.results.map(project =>
+      <Project {... project} />);
+
     return (
       <div>
         <h1>Search</h1>
+        <p>{this.state.results.length} results for {this.state.searchQuery}</p>
         <form onSubmit={this.handleOnSubmit}>
           <input
             type="text"
-            value={this.state.search}
+            placeholder="Learn by helping. Search for a task to do."
+            value={this.state.searchQuery}
             onChange={this.handleChange}
           />
-          <button>Search</button>
+          <button onClick={this.handleOnSubmit}>Search</button>
         </form>
-        <Project search={this.state.search} />
+        <div>
+          Filter by
+          <button>Location</button>
+          <button>Category</button>
+          <button>Skills</button>
+        </div>
+
+        <button onClick={this.populateResults}>[DEV] populate with fake projects</button>
+        <br />
+        <button onClick={this.submitResults}>[DEV] update DB with fake projects</button>
+        {projects}
       </div>
     );
   }

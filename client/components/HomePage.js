@@ -1,16 +1,21 @@
 /* eslint react/prop-types: 0 */
-import React from 'react';
-import { withStyles } from 'material-ui/styles';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import Avatar from 'material-ui/Avatar';
+import TextField from 'material-ui/TextField';
+
 import handShake from '../images/hand_shake.svg';
 import wallClock from '../images/wall_clock.svg';
 import group from '../images/group.svg';
 import homeBanner from '../images/gum_homebanner.jpg';
+
+// import Search from '../containers/Search';
 
 const styles = () => ({
   headerArea: {
@@ -48,6 +53,7 @@ const styles = () => ({
     visibility: 'hidden'
   },
   publishBox: {
+    alignSelf: 'flex-start',
     textAlign: 'right'
   },
   publishLink: {
@@ -98,46 +104,26 @@ const styles = () => ({
   }
 });
 
-const Header = (props) => {
-  const { classes } = props;
-  const topHeader = classNames(`${classes.topHeader}`, `${classes.flex1}`);
-  const countryBox = classNames(`${classes.countryBox}`);
-  const titleBox = classNames(`${classes.titleBox}`);
-  const publishBox = classNames(`${classes.publishBox}`);
-  const searchBox = classNames(`${classes.flex2}`);
-  const bottomHeader = classNames(`${classes.bottomHeader}`, `${classes.flex2}`);
-  const valueBox = classNames(`${classes.valueBox}`);
+class HomePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  return (
-    <Grid
-      container
-      direction="column"
-      justify="center"
-      alignItems="stretch"
-      className={classes.headerArea}
-    >
-      <Grid container xs={12} className={topHeader}>
-        <Grid xs={4} item className={countryBox}>
-          <Button variant="raised" color="primary">
-            Primary
-          </Button>
-        </Grid>
-        <Grid xs={4} item className={titleBox}>
-          <Typography variant="title" className={classes.title}>
-            One hour a Day
-          </Typography>
-        </Grid>
-        <Grid xs={4} item className={publishBox}>
-          <Link to="/publish" className={classes.publishLink}>Publish your social project</Link>
-        </Grid>
-      </Grid>
+  handlePublishProject = () => {
+  };
 
-      <Grid xs={12} item className={searchBox}>
-        <Typography variant="subheading" className={classes.subtitle}>
-          Spend 1 hour and help a social cause
-        </Typography>
-      </Grid>
+  render() {
+    const { classes } = this.props;
+    const topHeader = classNames(`${classes.topHeader}`, `${classes.flex1}`);
+    const countryBox = classNames(`${classes.countryBpropsox}`);
+    const titleBox = classNames(`${classes.titleBox}`);
+    const publishBox = classNames(`${classes.publishBox}`);
+    const searchBox = classNames(`${classes.flex2}`);
+    const bottomHeader = classNames(`${classes.bottomHeader}`, `${classes.flex2}`);
+    const valueBox = classNames(`${classes.valueBox}`);
 
+    const bottomHeaderContent = (
       <Grid container xs={12} className={bottomHeader} justify="center">
 
         <Grid xs={4} item className={valueBox}>
@@ -174,10 +160,70 @@ const Header = (props) => {
         </Grid>
 
       </Grid>
+    );
 
-    </Grid>
-  );
-};
+    const topHeaderContent = (
+      <Grid container xs={12} className={topHeader}>
+        <Grid xs={4} item className={countryBox}>
+          <Button variant="raised" color="primary">
+            Primary
+          </Button>
+        </Grid>
+        <Grid xs={4} item className={titleBox}>
+          <Typography variant="title" className={classes.title}>
+            One hour a Day
+          </Typography>
+        </Grid>
+        <Grid xs={4} item className={publishBox}>
+          <Link to="/publish">
+            <Button onClick={this.handlePublishProject} variant="raised" color="primary" className={classes.publishButton}>
+            Publish your social project
+            </Button>
+          </Link>
+        </Grid>
+      </Grid>
+    );
 
-export default withStyles(styles)(Header);
+    const searchArea = (
+      <Grid container xs={12} className={topHeader}>
+        <Grid xs={3}>.</Grid>
+        <Grid xs={2} item>
+          <TextField
+            defaultValue="dance"
+          />
+        </Grid>
+        <Grid xs={2}>
+          <Button variant="raised" color="primary">
+            Search
+          </Button>
+        </Grid>
+      </Grid>
+    );
+
+    return (
+      <Grid
+        container
+        direction="column"
+        justify="center"
+        alignItems="stretch"
+        className={classes.headerArea}
+      >
+
+        {topHeaderContent}
+
+        {searchArea}
+
+        <Grid xs={12} item className={searchBox}>
+          <Typography variant="subheading" className={classes.subtitle}>
+            Spend 1 hour and help a social cause
+          </Typography>
+        </Grid>
+        {bottomHeaderContent}
+
+      </Grid>
+    );
+  }
+}
+
+export default withStyles(styles)(HomePage);
 
