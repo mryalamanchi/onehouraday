@@ -22,7 +22,7 @@ const styles = () => ({
     width: 1280,
     height: 550,
     margin: '0 auto',
-    padding: '10px 20px',
+    padding: '0px 20px',
     background: `url(${homeBanner}) no-repeat top center`
   },
   topHeader: {
@@ -56,13 +56,9 @@ const styles = () => ({
     alignSelf: 'flex-start',
     textAlign: 'right'
   },
-  publishLink: {
-    fontFamily: 'Roboto',
-    fontSize: 14,
+  publishButton: {
+    fontSize: '14px',
     fontWeight: 900,
-    padding: '10px 50px',
-    textTransform: 'uppercase',
-    textDecoration: 'none',
     color: 'rgba(255, 255, 255, 0.87)',
     backgroundColor: '#4a90e2'
   },
