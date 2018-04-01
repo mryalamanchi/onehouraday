@@ -1,6 +1,7 @@
 const styles = () => ({
   browseProjects: {
-    fontFamily: 'Roboto-Bold',
+    fontFamily: 'Roboto',
+    fontWeight: 700,
     fontSize: 20,
     letterSpacing: 3.4
   },
@@ -11,7 +12,8 @@ const styles = () => ({
     letterSpacing: 4.3,
     fontSize: 20,
     color: '#4a90e2',
-    fontFamily: 'Roboto-Medium',
+    fontFamily: 'Roboto',
+    fontWeight: 400,
     textTransform: 'uppercase',
     margin: '10px 0'
   }

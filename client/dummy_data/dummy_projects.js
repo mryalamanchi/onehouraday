@@ -25,8 +25,8 @@ export default [
       contact_name: 'Margaret'
     },
     location: {
-      country: 'Canada',
-      city: 'Toronto'
+      country: 'France',
+      city: 'Paris'
     },
     created_at: null,
     updated_at: null
