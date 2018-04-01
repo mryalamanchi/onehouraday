@@ -31,6 +31,7 @@
     "classnames": "^2.2.5",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
+    "immutability-helper": "^2.6.6",
     "jss-react-material": "^0.1.8",
     "material-ui": "^1.0.0-beta.38",
     "material-ui-icons": "^1.0.0-beta.36",
