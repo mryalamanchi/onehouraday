@@ -4,6 +4,8 @@ import axios from 'axios';
 import Project from '../components/Project';
 import dummyProjects from '../dummy_data/dummy_projects';
 
+const BASEURL = 'http://localhost:3000/api';
+
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +14,11 @@ class Search extends Component {
       results: dummyProjects
     };
   }
+
+  getQueryURI = () => {
+    const { searchQuery } = this.state;
+    return `${BASEURL}/project?search=${searchQuery}`;
+  };
 
   // TODO: replace with LinkedStateMixin https://reactjs.org/docs/two-way-binding-helpers.html
   handleChange = (event) => {
@@ -23,9 +30,27 @@ class Search extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     console.log('handleOnSubmit');
-    const { searchQuery } = this.state;
-    axios.get(`http://localhost:3000/api/project?search=${searchQuery}`).then((res) => {
+    axios.get(this.getQueryURI()).then((res) => {
+      console.dir(res.data);
       this.setState({ results: res.data });
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+
+  // for isolated dev of client-side
+  populateResults = () => {
+    console.log('populate with fake results');
+    this.setState({
+      results: dummyProjects
+    });
+  };
+
+  // put request with dummy projects
+  submitResults = () => {
+    console.log('post request with fake results');
+    dummyProjects.forEach((project) => {
+      axios.post(`${BASEURL}/project`, Object.assign({}, project, project.contact_detail, project.location));
     });
   };
 
@@ -53,6 +78,9 @@ class Search extends Component {
           <button>Skills</button>
         </div>
 
+        <button onClick={this.populateResults}>[DEV] populate with fake projects</button>
+        <br />
+        <button onClick={this.submitResults}>[DEV] update DB with fake projects</button>
         {projects}
       </div>
     );
