@@ -1,21 +1,26 @@
+/* eslint-disable */
 import React, { Component, Fragment } from 'react';
 import classNames from 'classnames';
+import {connect} from 'react-redux';
 import { object } from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 import styles from './styles';
 import searchIcon from '../../../../assets/images/search.svg';
+import searchActions from './actions';
 
 
 class Search extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      findTabIndex: 0
+      findTabIndex: 0,
+      searchValue: ''
     };
     this.handleTabClick = this.handleTabClick.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
   getTabClassName(index) {
@@ -25,10 +30,14 @@ class Search extends Component {
       { [`${classes.searchOptionSelected}`]: this.state.findTabIndex === index }
     );
   }
+  handleSearchChange(event) {
+    this.setState({ searchValue: event.target.value });
+  }
   handleTabClick(event) {
     this.setState({ findTabIndex: Number(event.target.dataset.index) });
   }
-  handleSearch() {
+  handleSearch() {    
+    this.props.setSearchData(this.state.searchValue, this.state.findTabIndex);
     this.context.router.history.push('/search');
   }
   render() {
@@ -49,6 +58,7 @@ class Search extends Component {
               <TextField
                 className={classes.textField}
                 placeholder="Learn by helping. Search for a task to do."
+                onChange={this.handleSearchChange}
                 InputProps={{
                 disableUnderline: true,
                 classes: {
@@ -71,6 +81,13 @@ class Search extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({  
+    setSearchData: (searchValue, searchTabIndex) =>
+      dispatch(searchActions.setSearchData(searchValue, searchTabIndex))
+})
+
+
 Search.contextTypes = {
   router: object
 };
@@ -79,4 +96,4 @@ Search.propTypes = {
   classes: object.isRequired
 };
 
-export default withStyles(styles)(Search);
+export default connect(null, mapDispatchToProps)(withStyles(styles)(Search));

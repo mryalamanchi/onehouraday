@@ -1,3 +1,4 @@
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["handleSubmit"] }] */
 import React from 'react';
 import classNames from 'classnames';
 import update from 'immutability-helper';
@@ -92,7 +93,6 @@ class PublishProject extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
     event.preventDefault();
   }
 
