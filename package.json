@@ -8,7 +8,7 @@
     "build": "npm run clean && npm run build-client",
     "build-client": "webpack --mode production --config webpack.config.js",
     "clean": "rimraf dist/",
-    "lint": "npm run lint:*",
+    "lint": "concurrently \"npm run lint:server\" \"npm run lint:client\"",
     "lint:client": "eslint client/",
     "lint:server": "eslint server/",
     "watch:client": "webpack-dev-server",
