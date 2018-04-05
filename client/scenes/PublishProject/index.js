@@ -1,7 +1,7 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import classNames from 'classnames';
 import update from 'immutability-helper';
+import { array, object } from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import {
   FormLabel,
@@ -16,106 +16,13 @@ import Button from 'material-ui/Button';
 import Public from 'material-ui-icons/Public';
 import Place from 'material-ui-icons/Place';
 import Photo from 'material-ui-icons/Photo';
-import HeaderBar from '../components/HeaderBar';
+import HeaderBar from '../../components/HeaderBar';
+import styles from './styles';
 
-const styles = {
-  root: {
-    flexGrow: 1,
-    maxWidth: 1280,
-    margin: '20px auto',
-    backgroundColor: '#f8f9fc;'
-  },
-  flex: {
-    display: 'flex'
-  },
-  flex1: {
-    flex: 1
-  },
-  hidden: {
-    display: 'none'
-  },
-  fillParent: {
-    width: '100%',
-    height: '100%'
-  },
-  form: {
-    padding: 20,
-    backgroundColor: '#ffffff;'
-  },
-  formRow: {
-    marginTop: 30,
-    marginBottom: 40
-  },
-  formItem3Col: {
-    paddingRight: 30,
-    width: '25%'
-  },
-  formItem2Col: {
-    paddingRight: 30,
-    width: '50%'
-  },
-  counter: {
-    textAlign: 'right'
-  },
-  projectPhoto: {
-    width: 160,
-    height: 160,
-    color: '#9e9e9e'
-  },
-  boxProjectPhoto: {
-    width: '30%',
-    height: '100%',
-    textAlign: 'center',
-    padding: '60px 60px',
-    margin: '0 auto',
-    border: 'solid 1px #979797',
-    backgroundColor: '#D6D6D6'
-  },
-  labelProjectPhoto: {
-    borderBottom: 'solid 1px #ffffff',
-    color: '#ffffff'
-  },
-  boxIcon: {
-    alignItems: 'center',
-    padding: 10,
-    marginRight: 30,
-    width: 120
-  },
-  boxIconSelected: {
-    fontWeight: 'bold',
-    border: 'solid 1px #979797',
-    backgroundColor: '#D6D6D6'
-  },
-  icon: {
-    width: 60,
-    height: 60,
-    color: '#9e9e9e'
-  },
-  textIcon: {
-    paddingTop: 9
-  },
-  link: {
-    fontFamily: 'Roboto',
-    fontSize: 14,
-    fontWeight: 500,
-    padding: '10px 15px',
-    textTransform: 'uppercase',
-    textDecoration: 'none',
-    color: '#ffffff',
-    letterSpacing: 0.5,
-    backgroundColor: '#4a90e2',
-    borderRadius: 2,
-    boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12)'
-  }
-};
 
 class PublishProject extends React.Component {
   constructor(props) {
     super(props);
-    // fetch from service?
-    this.props.categories = ['EDUCATION', 'HUNGRY', 'POVERTY', 'HEALTH',
-      'ENVIRONMENT', 'PEACE', 'JUSTICE', 'ANIMALS',
-      'BUSINESS', 'HUMAN RIGHTS', 'OTHERS'];
 
     this.state = {
       categories: this.props.categories.map(category => ({ [`'${category}'`]: false })),
@@ -362,6 +269,19 @@ class PublishProject extends React.Component {
     );
   }
 }
+
+PublishProject.propTypes = {
+  categories: array,
+  /* eslint react/forbid-prop-types: 0 */
+  classes: object.isRequired
+};
+
+PublishProject.defaultProps = {
+  // fetch from service?
+  categories: ['EDUCATION', 'HUNGRY', 'POVERTY', 'HEALTH',
+    'ENVIRONMENT', 'PEACE', 'JUSTICE', 'ANIMALS',
+    'BUSINESS', 'HUMAN RIGHTS', 'OTHERS']
+};
 
 export default withStyles(styles)(PublishProject);
 

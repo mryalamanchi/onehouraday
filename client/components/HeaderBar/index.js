@@ -1,36 +1,12 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import { Link } from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Icon from 'material-ui/Icon';
-
-const styles = {
-  headerBar: {
-    backgroundColor: '#4a90e2'
-  },
-  backButton: {
-    marginRight: 20,
-    color: '#ffffff'
-  },
-  action: {
-    flex: 1,
-    fontSize: 20,
-    letterSpacing: 1.4,
-    textTransform: 'uppercase',
-    textAlign: 'left',
-    color: '#ffffff'
-  },
-  title: {
-    fontFamily: 'Barrio',
-    fontSize: 36,
-    letterSpacing: 2.6,
-    color: '#ffffff'
-  }
-};
+import styles from './styles';
 
 // configurable headerbar
 function HeaderBar(props) {
@@ -53,7 +29,9 @@ function HeaderBar(props) {
   );
 }
 
-/* PublishProject.propTypes = {
-  classes: PropTypes.object.isRequired
-}; */
+HeaderBar.propTypes = {
+  /* eslint react/forbid-prop-types: 0 */
+  classes: PropTypes.object.isRequired,
+  param: PropTypes.object.isRequired
+};
 export default withStyles(styles)(HeaderBar);
