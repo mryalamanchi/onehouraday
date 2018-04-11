@@ -84,12 +84,10 @@ class PublishProject extends React.Component {
     };
   }
 
-  handleChange(name) {
-    return (event) => {
-      this.setState({
-        [name]: event.target.value
-      });
-    };
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
 
   handleSubmit(event) {
@@ -118,7 +116,8 @@ class PublishProject extends React.Component {
                   accept="image/*"
                   className={classes.hidden}
                   id="projectPhoto"
-                  onChange={this.handleChange('projectPhoto')}
+                  name="projectPhoto"
+                  onChange={this.handleChange}
                   value={this.state.projectPhoto}
                   type="file"
                 />
@@ -135,9 +134,10 @@ class PublishProject extends React.Component {
             <FormGroup>
               <TextField
                 id="projectName"
+                name="projectName"
                 label="What&apos;s your project name?"
                 value={this.state.projectName}
-                onChange={this.handleChange('projectName')}
+                onChange={this.handleChange}
                 fullWidth
                 margin="normal"
               />
@@ -163,8 +163,9 @@ class PublishProject extends React.Component {
             <FormGroup>
               <TextField
                 id="projectInfo"
+                name="projectInfo"
                 value={this.state.projectInfo}
-                onChange={this.handleChange('projectInfo')}
+                onChange={this.handleChange}
                 label="Describe whats your project about"
                 fullWidth
                 margin="normal"
@@ -233,16 +234,18 @@ class PublishProject extends React.Component {
               <TextField
                 id="ownerName"
                 label="Your name"
+                name="ownerName"
                 value={this.state.ownerName}
-                onChange={this.handleChange('ownerName')}
+                onChange={this.handleChange}
                 fullWidth
                 margin="normal"
               />
               <TextField
                 id="ownerEmail"
                 label="Your email"
+                name="ownerEmail"
                 value={this.state.ownerEmail}
-                onChange={this.handleChange('ownerEmail')}
+                onChange={this.handleChange}
                 fullWidth
                 margin="normal"
               />

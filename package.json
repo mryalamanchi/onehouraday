@@ -11,7 +11,7 @@
     "lint": "concurrently \"npm run lint:server\" \"npm run lint:client\"",
     "lint:client": "eslint client/",
     "lint:server": "eslint server/",
-    "watch:client": "webpack-dev-server --mode development",
+    "watch:client": "webpack-dev-server -d --mode development",
     "watch:server": "nodemon server/index.js --ignore client/ --ignore dist/",
     "dev": "concurrently \"npm run watch:server\" \"npm run watch:client\"",
     "test": ""
