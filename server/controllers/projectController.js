@@ -70,6 +70,7 @@ exports.createProject = async (req, res) => {
       country: req.body.country,
       city: req.body.city
     },
+    skills: req.body.skills,
     created_at: Date.now(),
     updated_at: Date.now()
   });

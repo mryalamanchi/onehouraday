@@ -1,6 +1,6 @@
 export default [
   {
-    id: 1,
+    _id: 1,
     name: 'dancing classes',
     description: 'dance together',
     category: 'dance',
@@ -17,7 +17,7 @@ export default [
     updated_at: null
   },
   {
-    id: 2,
+    _id: 2,
     name: 'Singing together',
     description: 'dance together',
     category: 'dance',
